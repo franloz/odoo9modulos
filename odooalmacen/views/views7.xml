@@ -1,0 +1,141 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="odooalmacen.list">
+      <field name="name">odooalmacen list</field>
+      <field name="model">odooalmacen.odooalmacen</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="odooalmacen.action_window">
+      <field name="name">odooalmacen window</field>
+      <field name="res_model">odooalmacen.odooalmacen</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odooalmacen.action_server">
+      <field name="name">odooalmacen server</field>
+      <field name="model_id" ref="model_odooalmacen_odooalmacen"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odooalmacen" id="odooalmacen.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odooalmacen.menu_1" parent="odooalmacen.menu_root"/>
+    <menuitem name="Menu 2" id="odooalmacen.menu_2" parent="odooalmacen.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odooalmacen.menu_1_list" parent="odooalmacen.menu_1"
+              action="odooalmacen.action_window"/>
+    <menuitem name="Server to list" id="odooalmacen" parent="odooalmacen.menu_2"
+              action="odooalmacen.action_server"/>
+-->
+
+
+<!-- Vistas de zapatillas-->
+
+    <record model="ir.ui.view" id="odooalmacen.paquetepequeno_list_view">
+      <field name="name">odooalmacen.paquetepequeno.view.tree</field>
+      <field name="model">odooalmacen.paquetepequeno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="peso"/>
+          <field name="paquetepequeno_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="odooalmacen.paquetepequeno_search_view">
+      <field name="name">odooalmacen.paquetepequeno.view.search</field>
+      <field name="model">odooalmacen.paquetepequeno</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="peso"/>
+          <field name="paquetepequeno_id"/>
+          <group>
+            <filter name="group_by_peso" string="peso" context="{'gropup_by':'peso'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="odooalmacen.paquetepequeno_form_view">
+      <field name="name">odooalmacen.paquetepequeno.view.form</field>
+      <field name="model">odooalmacen.paquetepequeno</field>
+      <field name="arch" type="xml">
+        <form string="Información paquetepequeno">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                ID <field name="name" placeholder="id"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="peso" placeholder="peso"/>
+                <field name="paquetepequeno_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odooalmacen.paquetepequeno_action_window">
+      <field name="name">paquetepequeno</field>
+      <field name="res_model">odooalmacen.paquetepequeno</field>
+      
+    </record>
+
+    <menuitem name="odooalmacen" id="odooalmacen.menu_root"/>
+    <menuitem name="paquetepequeno" id="odooalmacen.menu_paquetepequeno" parent="odooalmacen.menu_root"/>
+    <menuitem name="Lista" id="odooalmacen.menu_paquetepequeno_list" parent="odooalmacen.menu_paquetepequeno"
+              action="odooalmacen.paquetepequeno_action_window"/>
+  </data>
+</odoo>
